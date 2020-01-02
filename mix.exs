@@ -73,15 +73,13 @@ defmodule NervesSystemOnLogicCL210.MixProject do
   defp package_files do
     [
       "fwup_include",
-      "lib",
-      "priv",
       "rootfs_overlay",
       "CHANGELOG.md",
       "fwup-revert.conf",
       "fwup.conf",
       "grub.cfg",
       "LICENSE",
-      "linux-4.19.defconfig",
+      "linux-5.4.defconfig",
       "mix.exs",
       "nerves_defconfig",
       "post-build.sh",
