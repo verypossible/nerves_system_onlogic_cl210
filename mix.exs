@@ -74,10 +74,13 @@ defmodule NervesSystemOnLogicCL210.MixProject do
     [
       "fwup_include",
       "rootfs_overlay",
+      "busybox.fragment",
       "CHANGELOG.md",
+      "Config.in",
+      "external.mk",
+      "file-to-cpio.sh",
       "fwup-revert.conf",
       "fwup.conf",
-      "grub.cfg",
       "LICENSE",
       "linux-5.4.defconfig",
       "mix.exs",
@@ -85,6 +88,7 @@ defmodule NervesSystemOnLogicCL210.MixProject do
       "post-build.sh",
       "post-createfs.sh",
       "README.md",
+      "startup.nsh",
       "VERSION"
     ]
   end
