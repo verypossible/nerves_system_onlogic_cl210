@@ -2,11 +2,6 @@
 
 set -e
 
-# Remove the Buildroot-generated grub.cfg so avoid confusion.
-# We put our grub in the FAT filesystem at the beginning of the
-# disk so that it exists across firmware updates.
-rm -fr $TARGET_DIR/boot/grub/*
-
 # Create the revert script for manually switching back to the previously
 # active firmware.
 mkdir -p $TARGET_DIR/usr/share/fwup
