@@ -88,7 +88,6 @@ defmodule NervesSystemOnLogicCL210.MixProject do
       "post-build.sh",
       "post-createfs.sh",
       "README.md",
-      "startup.nsh",
       "VERSION"
     ]
   end
