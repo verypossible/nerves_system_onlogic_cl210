@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.1
+
+* Enhancements
+  * Enable `pppd` for cellular network interfaces.
+
 ## v0.2.0
 
 * Enhancements
