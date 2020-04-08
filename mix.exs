@@ -1,6 +1,7 @@
 defmodule NervesSystemOnLogicCL210.MixProject do
   use Mix.Project
 
+  @github_organization "verypossible"
   @app :nerves_system_onlogic_cl210
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
@@ -35,7 +36,7 @@ defmodule NervesSystemOnLogicCL210.MixProject do
     [
       type: :system,
       artifact_sites: [
-        {:github_releases, "verypossible/#{@app}"}
+        {:github_releases, "#{@github_organization}/#{@app}"}
       ],
       build_runner_opts: build_runner_opts(),
       platform: Nerves.System.BR,
@@ -66,7 +67,7 @@ defmodule NervesSystemOnLogicCL210.MixProject do
     [
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"Github" => "https://github.com/verypossible/#{@app}"}
+      links: %{"Github" => "https://github.com/#{@github_organization}/#{@app}"}
     ]
   end
 
