@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.4.0
+
+* Updated dependencies
+  * [nerves_system_br v1.13.7](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.13.7)
+  * linux 5.4.81
+  * Erlang 23.1.5
+
 ## v0.3.0
 
 This release updates Buildroot to 2020.02 and upgrades gcc from 8.3 to 9.2.
