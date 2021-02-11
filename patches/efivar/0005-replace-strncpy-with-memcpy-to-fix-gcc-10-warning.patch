@@ -1,0 +1,62 @@
+From 43666b1e6a2a6a68c6e6d348d110f98ddb987fbc Mon Sep 17 00:00:00 2001
+From: Justin Schneck <jschneck@mac.com>
+Date: Thu, 11 Feb 2021 09:34:46 -0500
+Subject: [PATCH] replace strncpy with memcpy to fix gcc-10 warning
+
+---
+ src/efivar.c | 4 ++--
+ src/guid.c   | 2 +-
+ src/guid.h   | 2 +-
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/efivar.c b/src/efivar.c
+index 228bdb7..099489d 100644
+--- a/src/efivar.c
++++ b/src/efivar.c
+@@ -152,7 +152,7 @@ bad_name:
+ 		name_pos++;
+ 
+ 		memset(guid_buf, 0, sizeof(guid_buf));
+-		strncpy(guid_buf, guid_name, guid_len - 1);
++		memcpy(guid_buf, guid_name, guid_len - 1);
+ 
+ 		rc = text_to_guid(guid_buf, guid);
+ 		if (rc < 0)
+@@ -167,7 +167,7 @@ bad_name:
+ 		fprintf(stderr, "efivar: %m\n");
+ 		exit(1);
+ 	}
+-	strcpy(name_buf, guid_name + name_pos);
++	memcpy(name_buf, guid_name + name_pos, name_len);
+ 	*name = name_buf;
+ }
+ 
+diff --git a/src/guid.c b/src/guid.c
+index 3156b3b..2937789 100644
+--- a/src/guid.c
++++ b/src/guid.c
+@@ -273,7 +273,7 @@ efi_name_to_guid(const char *name, efi_guid_t *guid)
+ 		return 0;
+ 
+ 	char tmpname[sizeof(key.name) + 9];
+-	strcpy(tmpname, "efi_guid_");
++	memcpy(tmpname, "efi_guid_", 9);
+ 	memmove(tmpname+9, key.name, sizeof (key.name) - 9);
+ 
+ 	rc = efi_symbol_to_guid(tmpname, guid);
+diff --git a/src/guid.h b/src/guid.h
+index d4a06f9..68b54b2 100644
+--- a/src/guid.h
++++ b/src/guid.h
+@@ -103,7 +103,7 @@ text_to_guid(const char *text, efi_guid_t *guid)
+ 
+ 	/* 84be9c3e-8a32-42c0-891c-4cd3b072becc
+ 	 * ^ */
+-	strncpy(eightbytes, text, 8);
++	memcpy(eightbytes, text, 8);
+ 	if (check_segment_sanity(eightbytes, 8) < 0)
+ 		return -1;
+ 	guid->a = (uint32_t)strtoul(eightbytes, NULL, 16);
+-- 
+2.25.1
+
