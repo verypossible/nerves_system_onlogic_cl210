@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.6.0
+
+This release updates to Linux 5.15.71, Buildroot 2022.05.2, GCC 11.3 and OTP 25.0.4.
+
+* Updated dependencies
+  * [linux: v5.15.71](https://cdn.kernel.org/pub/linux/kernel/v5.x/ChangeLog-5.15.71)
+  * [nerves_system_br: v1.20.6](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.20.6)
+  * [Buildroot 2022.05.2](http://lists.busybox.net/pipermail/buildroot/2022-August/650546.html)
+  * [Erlang/OTP 25.0.4](https://erlang.org/download/OTP-25.0.4.README)
+  * [Nerves toolchains 1.6.0](https://github.com/nerves-project/toolchains/releases/tag/v1.6.0)
+
 ## v0.5.0
 
 This release updates to Buildroot 2020.11.2, GCC 10.2 and OTP 23.2.4.
